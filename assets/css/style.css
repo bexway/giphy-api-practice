@@ -1,3 +1,72 @@
 * {
   box-sizing: border-box
 }
+
+body{
+  /*background-image: url("../images/escheresque/escheresque.png");
+  background-repeat: repeat;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;*/
+
+  --bg-content: white;
+  --border-color: black;
+  --content-padding: 1em;
+  --font-timer:'Luckiest Guy', cursive;
+  --font-general:'VT323', monospace;
+  --font-size-timer:3em;
+  --font-size-general:2em;
+  --questionbg-hover:#d2a3ff;
+  --questionborder-hover:#461377;
+  --questionbg-correct:#77ff7a;
+  --questionbg-correct-hover:#47ff4b;
+  --questionborder-correct:#005901;
+  --questionbg-wrong:#ff8484;
+  --questionbg-wrong-hover:#ff5454;
+  --questionborder-wrong:#7f0000;
+}
+
+.border-thin{
+  border: 2px solid var(--border-color);
+}
+
+.flex{
+  display: flex;
+}
+
+.flex-around{
+  justify-content: space-around;
+}
+
+.flex-center{
+  justify-content: space-around;
+}
+
+.flex-nowrap{
+  flex-wrap: nowrap;
+}
+
+.flex-start{
+  justify-content: flex-start;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.margin-top{
+  margin-top: 1em;
+}
+
+.padding{
+  padding: var(--content-padding);
+}
+
+.width-full{
+  width:100%;
+}
