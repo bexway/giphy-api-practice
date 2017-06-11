@@ -21,18 +21,15 @@ body{
   --font-general:'VT323', monospace;
   --font-size-timer:3em;
   --font-size-general:2em;
-  --questionbg-hover:#d2a3ff;
-  --questionborder-hover:#461377;
-  --questionbg-correct:#77ff7a;
-  --questionbg-correct-hover:#47ff4b;
-  --questionborder-correct:#005901;
-  --questionbg-wrong:#ff8484;
-  --questionbg-wrong-hover:#ff5454;
-  --questionborder-wrong:#7f0000;
+  --margin-small: .5em;
 }
 
 .border-thin{
   border: 2px solid var(--border-color);
+}
+
+.display-inline-block{
+  display: inline-block;
 }
 
 .flex{
@@ -57,6 +54,10 @@ body{
 
 .flex-wrap{
   flex-wrap: wrap;
+}
+
+.margin-small{
+  margin: var(--margin-small);
 }
 
 .margin-top{

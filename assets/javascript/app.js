@@ -5,7 +5,6 @@ var giphy = {
   topics:["dogs", "cats"],
   limit:10,
 
-
   initialButtons: function(){
     for (var i = 0; i < this.topics.length; i++) {
       this.addButton(this.topics[i]);
@@ -18,17 +17,20 @@ var giphy = {
   },
 
   giphySearch: function(){
-    console.log($(this).attr("data-name"));
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q="+$(this).attr("data-name")+"&limit="+this.limit+"&api_key=dc6zaTOxFJmzC";
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q="+$(this).attr("data-name")+"&limit="+giphy.limit+"&api_key=dc6zaTOxFJmzC";
     $.ajax({
       url:queryURL,
       method:"GET"
     }).done(function(gifdata){
+      console.log(gifdata);
       var gifDiv = $(".js-gifholder");
       gifDiv.empty();
       for(var i=0;i<gifdata.data.length;i++){
-        var imagejq = $("<img>").attr("src", gifdata.data[i].images.fixed_height_still.url).attr("alt", "a gif").addClass("js-gif").attr("data-state", "still").data("data-still-url", gifdata.data[i].images.fixed_height_still.url).data("data-moving-url", gifdata.data[i].images.original.url);
-        gifDiv.append(imagejq);
+        var imageDiv = $("<div class='border-thin display-inline-block margin-small'>");
+        var imagejq = $("<img>").attr("src", gifdata.data[i].images.fixed_height_still.url).attr("alt", "a gif").addClass("js-gif").attr("data-state", "still").data("data-still-url", gifdata.data[i].images.fixed_height_still.url).data("data-moving-url", gifdata.data[i].images.fixed_height.url);
+        imageDiv.append(imagejq);
+        imageDiv.append($("<p>").html("Rating: "+gifdata.data[i].rating).addClass("text-center"));
+        gifDiv.append(imageDiv);
       }
     });
   },
