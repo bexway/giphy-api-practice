@@ -25,11 +25,16 @@ var giphy = {
       method:"GET"
     }).done(function(gifdata){
       var gifDiv = $(".js-gifholder");
+      gifDiv.empty();
       for(var i=0;i<gifdata.data.length;i++){
-        var imageDiv = $("<img>").attr("src", gifdata.data[i].images.original_still.url).attr("alt", "a gif").attr("data-state", "still").data("data-still-url", gifdata.data[i].images.original_still.url).data("data-moving-url", gifdata.data[i].images.original.url);
+        var imageDiv = $("<img>").attr("src", gifdata.data[i].images.original_still.url).attr("alt", "a gif").addClass("js-gif").attr("data-state", "still").data("data-still-url", gifdata.data[i].images.original_still.url).data("data-moving-url", gifdata.data[i].images.original.url);
         gifDiv.append(imageDiv);
       }
     });
+  },
+
+  toggleMotion: function(){
+    console.log($(this).attr("data-state"));
   }
 };
 
@@ -48,6 +53,7 @@ $("#add-gif").on("click", function(event) {
 });
 
 $(document).on("click", ".gifbutton", giphy.giphySearch);
+$(document).on("click", ".gifbutton", giphy.toggleMotion);
 
 
 
