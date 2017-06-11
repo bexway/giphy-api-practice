@@ -27,8 +27,8 @@ var giphy = {
       var gifDiv = $(".js-gifholder");
       gifDiv.empty();
       for(var i=0;i<gifdata.data.length;i++){
-        var imageDiv = $("<img>").attr("src", gifdata.data[i].images.original_still.url).attr("alt", "a gif").addClass("js-gif").attr("data-state", "still").data("data-still-url", gifdata.data[i].images.original_still.url).data("data-moving-url", gifdata.data[i].images.original.url);
-        gifDiv.append(imageDiv);
+        var imagejq = $("<img>").attr("src", gifdata.data[i].images.fixed_height_still.url).attr("alt", "a gif").addClass("js-gif").attr("data-state", "still").data("data-still-url", gifdata.data[i].images.fixed_height_still.url).data("data-moving-url", gifdata.data[i].images.original.url);
+        gifDiv.append(imagejq);
       }
     });
   },
