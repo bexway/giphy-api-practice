@@ -34,7 +34,12 @@ var giphy = {
   },
 
   toggleMotion: function(){
-    console.log($(this).attr("data-state"));
+    if($(this).attr("data-state")==="still"){
+      $(this).attr("src", $(this).data("data-moving-url")).attr("data-state", "moving");
+    }
+    else{
+      $(this).attr("src", $(this).data("data-still-url")).attr("data-state", "still");
+    }
   }
 };
 
@@ -53,7 +58,7 @@ $("#add-gif").on("click", function(event) {
 });
 
 $(document).on("click", ".gifbutton", giphy.giphySearch);
-$(document).on("click", ".gifbutton", giphy.toggleMotion);
+$(document).on("click", ".js-gif", giphy.toggleMotion);
 
 
 
