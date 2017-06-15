@@ -12,7 +12,7 @@ var giphy = {
   },
 
   addButton: function(gifname){
-    var button = $("<button>").addClass("gifbutton").addClass("gifbutton").text(gifname).attr("data-name", gifname);
+    var button = $("<button>").addClass("gifbutton").addClass("gifbutton").addClass("btn-info").text(gifname).attr("data-name", gifname);
     $(".js-button-list").append(button);
     $("#gif-input").val("");
   },
