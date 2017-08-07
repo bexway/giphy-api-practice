@@ -1,16 +1,15 @@
-// var topics = ["dogs", "cats"];
-
-
 var giphy = {
   topics:["dogs", "cats"],
   limit:10,
 
+  // generates the initial gif search buttons at the top of the screen
   initialButtons: function(){
     for (var i = 0; i < this.topics.length; i++) {
       this.addButton(this.topics[i]);
     }
   },
 
+// generates a single button for a gif search, and adds it to the list of buttons
   addButton: function(gifname){
     var button = $("<button>").addClass("gifbutton").addClass("gifbutton").addClass("btn-info").text(gifname).attr("data-name", gifname);
     $(".js-button-list").append(button);
@@ -18,7 +17,7 @@ var giphy = {
   },
 
   giphySearch: function(){
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q="+$(this).attr("data-name")+"&limit="+giphy.limit+"&api_key=dc6zaTOxFJmzC";
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q="+$(this).attr("data-name")+"&limit="+giphy.limit+"&api_key="+mykey;
     $.ajax({
       url:queryURL,
       method:"GET"
